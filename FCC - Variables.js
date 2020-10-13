@@ -38,3 +38,5 @@ console.log(typeof ""); // outputs "string"
 console.log(typeof 0); // outputs "number"
 console.log(typeof []); // outputs "object"
 console.log(typeof {}); // outputs "object"
+
+let admin, name; // can declare two variables at once

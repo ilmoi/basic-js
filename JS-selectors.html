@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Testing JS selectors</title>
+</head>
+<body>
+    <div class="dem_headings">
+        <h1>I'm an h1</h1>
+        <h2>I'm an h2</h2>
+        <h3>I'm an h3</h3>
+        <h4>I'm an h4</h4>
+        <span>
+            <h4>Another h4, but nested further down</h4>
+        </span>
+        <h5>I'm an h5</h5>
+        <span>
+            <h5>Another h5, but nested further down</h5>
+        </span>
+        <h6>I'm an h6</h6>
+    </div>
+    <div id="outer">
+        <span id="middle">
+            <span id="inner">
+                <p>I'm inside div > span > span</p>
+            </span>
+        </span>
+    </div>
+    <div>
+        <h1>p+p</h1>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+    </div>
+    <div>
+        <h1>h6+p</h1>
+        <h6>I'm an h6</h6>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <h6>I'm an h6</h6>
+        <h6>I'm an h6</h6>
+        <h6>I'm an h6</h6>
+    </div>
+    <script>
+        // -------------------- RETRIEVE
+        //select all elements.
+        //(!) returns a "nodelist", not an array...
+        const allDivs = document.querySelectorAll('div')
+        console.log(allDivs);
+
+        //...to convert to array
+        const allDivsArray = Array.from(allDivs);
+        console.log(allDivsArray);
+
+        //select the first element (by class)
+        const demHeadings = document.querySelector('.dem_headings');
+        console.log(demHeadings);
+
+        // select the first element (by id)
+        const outerDiv = document.querySelector("#outer");
+        console.log(outerDiv);
+
+        //select child elem
+        console.dir(demHeadings.firstElementChild);
+
+        //select sibling elem
+        console.dir(outerDiv.previousElementSibling);
+
+        // -------------------- CREATE & INSERT
+        //create in mem
+        const newDiv = document.createElement('div');
+        const newContent = document.createTextNode("Hi there and greetings!");
+        newDiv.appendChild(newContent);
+        //append to existing content
+        const currentDiv = document.getElementById('outer')
+        document.body.insertBefore(newDiv, currentDiv);
+
+        // -------------------- STYLES
+        //get
+        newDiv.style.color = 'red';
+        newDiv.style.backgroundColor = 'yellow';
+        newDiv.style.border = '1px solid black';
+
+        //set
+        console.log(newDiv.style.color);
+        console.log(newDiv.style.backgroundColor);
+        console.log(newDiv.style.border);
+
+        //remove
+        newDiv.style.color = '';
+
+        // -------------------- REMOVE
+        const firstH6 = document.querySelector('h6');
+        demHeadings.removeChild(firstH6);
+
+        //all the api calls -> https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+//-------------------------------------------------------- 0 multiple docs
+//the huge advantage of splitting files in SCSS rather than using @import in html is that
+//scss eventually compiles into 1 file and so the user only had to load 1 file over http
+//on the other hand with @import inside html they have to load multiple files
+//NOTE that variables from that file would easily be available here too
+@use '_more_styles';
+
+//-------------------------------------------------------- 1 variables
+$font-stack: monospace;
+$font-size: 20px;
+$primary-color: blue;
+
+body {
+  font: 100% $font-stack;
+  font-size: $font-size;
+  color: $primary-color;
+}
+
+//-------------------------------------------------------- 2 nesting
+div {
+  background-color: yellow;
+
+  h1 {
+    background-color: orange;
+  }
+
+  h5 {
+    background-color: red;
+
+    //can easily nest media queries!
+    @media (max-width: 600px) {
+      background-color: green;
+    }
+
+  }
+}
+
+//-------------------------------------------------------- 3 mixins
+@mixin padding($value) {
+  padding: $value;
+}
+
+//useful for when you have many properties that you'd otherwise have to retype
+//NOTE: can even take args
+@mixin many-cols($value) {
+  -moz-column-count: $value;
+  -moz-column-gap: 1em;
+  -webkit-column-count: $value;
+  -webkit-column-gap: 1em;
+  column-count: $value;
+  column-gap: 1em;
+}
+
+.long-para {
+  @include padding(50px); //same as "padding: 50px";
+  @include many-cols(3);
+
+}
+
+//-------------------------------------------------------- 4 extend/inherit
+%border-shared {
+  border: 1px solid black;
+}
+
+h2 {
+  @extend %border-shared;
+}
+
+h3 {
+  @extend %border-shared;
+}
+
+//-------------------------------------------------------- 5 math
+h5 {
+  font-size: ($font-size * 3); //you don't have to put brackets, but it's recommended for readability
+}
+
+//can apply math to colors
+$base-link-color: #00f;
+a {
+  // This reduces the lightness of the color (in HSL terms)
+  // by 50%, leaving hue and saturation alone
+  color: darken($base-link-color, 20%);
+}

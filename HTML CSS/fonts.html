@@ -1,0 +1,38 @@
+<!--
+from https://learn.shayhowe.com/html-css/working-with-typography/
+
+typeface vs font:
+- typeface = what we see == the artistic impression of the font
+- font = file that contains the typeface.
+(think song vs MP3)
+-->
+
+<!--importing a custom font from google fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto:wght@700&display=swap" rel="stylesheet" data-noprefix>
+
+
+<style>
+  div {
+    /*desired fonts listed from left to right. If any fails to load, the one on the right will be used.*/
+    /*font names with 2 or more words need to be wrapped into quotes*/
+    /*last word should be one of 3: sans-serif, serif, monospace*/
+    font-family: "Krona One", monospace, Helvetica, Arial, sans-serif;
+
+    /*choose between: small-caps, normal, inherit, */
+    font-variant: small-caps;
+
+    font-weight: bold;
+
+    font-style: italic;
+
+    line-height: 22px;
+
+    color:red;
+  }
+</style>
+<div>
+  Hello World!
+  Hello World!
+  Hello World!
+  Hello World!
+</div>

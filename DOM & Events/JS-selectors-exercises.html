@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Practice selectors</title>
+</head>
+<body>
+</body>
+<script>
+    // 1
+    const newP = document.createElement('p');
+    newP.style.color = 'red';
+    const newPText = document.createTextNode('Hey I\'m red!')
+    newP.appendChild(newPText);
+    const body = document.querySelector('body');
+    body.appendChild(newP);
+
+    // 2
+    const newH3 = document.createElement('h3');
+    newH3.style.color = 'blue';
+    newH3.textContent = "I'm a blue h3!"
+    body.appendChild(newH3);
+
+    // 3
+    const newDiv = document.createElement('div');
+    newDiv.style.border = '1px solid black';
+    newDiv.style.backgroundColor = 'pink';
+    const newH1 = document.createElement('H1');
+    newH1.textContent = "I'm in a div!"
+    newDiv.appendChild(newH1);
+    const newPinDiv = document.createElement('p');
+    newPinDiv.textContent = "MEE TOO!"
+    newDiv.appendChild(newPinDiv);
+    body.appendChild(newDiv);
+</script>
+</html>

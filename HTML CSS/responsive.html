@@ -1,0 +1,39 @@
+<style>
+
+  /* normal display properties*/
+  nav {
+    float: left;
+    width: 300px;
+    background-color: #3BC1AC;
+    border: 1px solid #0764f8;
+  }
+
+  div {
+    background-color: lightgray;
+    border: 1px solid red;
+  }
+
+  /*special display properties, when width is 600 or less*/
+  @media (max-width: 600px) {
+    nav {
+      float: none;
+      width: 100%;
+    }
+  }
+
+
+</style>
+<nav>
+  <ul>
+    <li>List</li>
+    <li>List</li>
+    <li>List</li>
+    <li>List</li>
+  </ul>
+</nav>
+<div>
+  <div>Content</div>
+  <div>Content</div>
+  <div>Content</div>
+  <div>Content</div>
+</div>

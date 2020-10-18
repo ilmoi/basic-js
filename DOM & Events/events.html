@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+    <!------------------------------------------------------------------------->
+    <!--3 methods with UNNAMED FUNCTIONS-->
+
+    <!--method 1-->
+    <!--the worst, since have everything in html code-->
+    <button onclick="alert('Hello World')">Method 1</button>
+
+    <!--method 2-->
+    <!--better, js code now separate, but a problem that the DOM element can only have 1 "onclick" property-->
+    <button id="btn">Method 2</button>
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.onclick = () => alert("Hello World");
+    </script>
+
+    <!--method 3-->
+    <!--best = separate concerns + can have multiple event listeners if the need arises-->
+    <button id="btn2">Method 3</button>
+    <script>
+        const btn2 = document.querySelector('#btn2');
+        btn2.addEventListener('click', () => {
+            alert("Hello World");
+        });
+        //see we can add a 2nd one!
+        btn2.addEventListener('click', () => {
+            alert("Hello World2");
+        });
+    </script>
+
+
+    <!------------------------------------------------------------------------->
+    <!--3 methods with NAMED FUNCTIONS-->
+
+    <script>
+        //create the alert fn first
+        function alertMe() {
+            alert("Named hello world!")
+        }
+    </script>
+
+    <!--method 1 named-->
+    <button onclick="alertMe()">Method 1 Named</button>
+
+    <!--method 2 named-->
+    <button id="btn3">Method 2 Named</button>
+    <script>
+        const btn3 = document.querySelector('#btn3');
+        btn3.onclick = alertMe;
+    </script>
+
+    <!--method 3 named-->
+    <button id="btn4">Method 3 Named</button>
+    <script>
+        const btn4 = document.querySelector('#btn4');
+        btn4.addEventListener('click', alertMe);
+    </script>
+
+
+    <!------------------------------------------------------------------------->
+    <!-- To access more information about the event we can pass a callback-->
+    <button id="btn5">See event details</button>
+    <script>
+        const btn5 = document.querySelector('#btn5');
+        btn5.addEventListener('click', (e) => {
+            console.log(e);
+            console.log(e.target); //selects the button
+            e.target.style.background = 'blue'; //turns it blue after its been selected
+        })
+    </script>
+
+    <!------------------------------------------------------------------------->
+    <!--we can do multiple items at once-->
+    <div>
+        <button id="1">Click mez</button>
+        <button id="2">Click mez</button>
+        <button id="3">Click mez</button>
+        <button id="4">Click mez</button>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                console.log(e);
+            })
+        })
+    </script>
+
+    <!--see all events here -> https://www.w3schools.com/jsref/dom_obj_event.asp-->
+
+</body>
+</html>

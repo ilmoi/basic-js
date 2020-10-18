@@ -1,0 +1,470 @@
+<!--from https://www.youtube.com/watch?v=SCSAExGFK1E&list=PL4cUxeGkcC9iXItWKbaQxcyDT1u6E7a8a&index=1-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ninja Bulma tutorial</title>
+  <link rel="stylesheet" href="sass/mystyles.css" type="text/css">
+  <!--<link rel="stylesheet"-->
+  <!--      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">-->
+  <script defer
+          src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</head>
+
+<body class="container">
+
+<!--navbar-->
+<div class="navbar has-shadow is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJmmjwQAaowj122B2cMcfszVeiF6jcdtuiaA&usqp=CAU">
+    </a>
+    <a class="navbar-burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <a href="" class="navbar-item">My account</a>
+      <a href="" class="navbar-item">My account</a>
+      <a href="" class="navbar-item">My account</a>
+      <a href="" class="navbar-item">My account</a>
+    </div>
+  </div>
+</div>
+
+<!--more playing around-->
+<sections class="section">
+  <div class="arrow(red)"></div>
+  <div class="block has-background-primary">aa</div>
+  <div class="loader"></div>
+  <div class="delete"></div>
+  <h1 class="has-text-blue-dark has-background-success-light m-6 p-6 has-shadow is-block">
+    hello world!</h1>
+
+  <div class="level has-background-primary-light p-5">
+    <div class="level-left">
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+      <div class="level-item">
+        <p>Lorem.</p>
+      </div>
+    </div>
+
+  </div>
+
+</sections>
+
+<!--hero-->
+<section class="section">
+  <div class="hero has-background-primary-light">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          hello title
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--tiles-->
+<section class="section">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+              Child tile
+            </article>
+            <article class="tile is-child notification is-primary">
+              Child tile
+            </article>
+            <article class="tile is-child notification is-primary">
+              Child tile
+            </article>
+            <article class="tile is-child notification is-primary">
+              Child tile
+            </article>
+          </div>
+          <div class="tile is-parent is-vertical">
+            <div class="tile is-child notification is-primary">
+              second col
+            </div>
+          </div>
+          <div class="tile is-parent is-vertical">
+            <div class="tile is-child notification is-primary">
+              third col
+            </div>
+            <div class="tile is-child notification is-primary">
+              third col
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-vertical is-4">
+        <div class="tile notification is-primary"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="tile is-ancestor is-vertical">
+      <div class="tile notification is-primary is-4 is-parent">
+        <div class="tile is-child">Hello world!</div>
+      </div>
+      <div class="tile notification is-primary is-4 is-parent">
+        <div class="tile is-child">Hello world!</div>
+      </div>
+      <div class="tile notification is-primary is-4 is-parent">
+        <div class="tile is-child">Hello world!</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!--panel-->
+<section class="section">
+  <nav class="panel">
+    <p class="panel-heading">Heading!</p>
+    <div class="panel-block">
+      <p class="control has-icons-left">
+        <input type="text" class="input" placeholder="Search">
+        <span class="icon is-left">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </span>
+      </p>
+    </div>
+    <p class="panel-tabs">
+      <a class="is-active">All</a>
+      <a>Public</a>
+      <a>Private</a>
+      <a>Sources</a>
+      <a>Forks</a>
+    </p>
+    <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+      bulma
+    </a>
+    <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+      marksheet
+    </a>
+  </nav>
+</section>
+
+<!--forms-->
+<section class="section">
+  <form action="">
+    <div class="field">
+      <label for="" class="label">Name</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="name">
+      </div>
+    </div>
+    <div class="field">
+      <label for="" class="label">Email</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="email">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <label for="" class="checkbox"></label>
+        <input type="checkbox" class="checkbox">
+        I agree to terms and ocnditoins
+      </div>
+    </div>
+  </form>
+</section>
+
+<!--message-->
+<section class="section">
+  <div class="message">
+    <div class="message-header"><p>yay</p></div>
+    <div class="message-body">Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Assumenda cumque dolorum ducimus incidunt nemo quasi quo
+      suscipit ullam voluptas voluptatem? Aliquam cum earum eligendi ipsum nemo
+      possimus vitae! Cupiditate, illo?
+    </div>
+  </div>
+</section>
+
+<!--cards-->
+<section class="section is-hidden-mobile">
+  <div class="columns mt-5-is-8 is-variable">
+    <div class="column is-4-tablet is-3-desktop">
+      <div class="card">
+        <div class="card-image has-text-centered px-6">
+          <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="card-content">
+          <p>$12.92</p>
+          <p class="is-size-3">Yay</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum,
+            eveniet!</p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="" class="has-text-grey">View product</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <div class="column is-4-tablet is-3-desktop">
+      <div class="card">
+        <div class="card-image has-text-centered px-6">
+          <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="card-content">
+          <p>$12.92</p>
+          <p class="is-size-3">Yay</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum,
+            eveniet!</p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="" class="has-text-grey">View product</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <div class="column is-4-tablet is-3-desktop">
+      <div class="card">
+        <div class="card-image has-text-centered px-6">
+          <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="card-content">
+          <p>$12.92</p>
+          <p class="is-size-3">Yay</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum,
+            eveniet!</p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="" class="has-text-grey">View product</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <div class="column is-4-tablet is-3-desktop">
+      <div class="card">
+        <div class="card-image has-text-centered px-6">
+          <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="card-content">
+          <p>$12.92</p>
+          <p class="is-size-3">Yay</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum,
+            eveniet!</p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="" class="has-text-grey">View product</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--buttons + modals-->
+<section class="section has-text-centered">
+  <button class="button">Add to card</button>
+  <button class="button is-danger">Add to card</button>
+  <button class="button is-primary">Add to card</button>
+  <button id="modal-button" class="button is-primary is-large">BIG BOI</button>
+  <button class="button is-primary is-small m-2">Add to card</button>
+  <button class="button is-primary is-small m-2 is-loading">Add to card</button>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-white p-5">
+      <h3 class="title">Join with the club</h3>
+      <button id="close" class="button">Done</button>
+    </div>
+  </div>
+</section>
+
+<!--bradcrumbs-->
+<section class="section">
+  <nav class="breadcrumb has-arrow-separator">
+    <ul>
+      <li><a>Who</a></li>
+      <li><a>Let</a></li>
+      <li><a>Dem</a></li>
+      <li><a>Dogs</a></li>
+      <li class="is-active"><a>Out</a></li>
+    </ul>
+  </nav>
+</section>
+
+<!--tabs-->
+<section class="section">
+  <div class="tabs is-boxed">
+    <ul>
+      <li id="button1" class="is-active" data-target="tab1"><a>First tab</a>
+      </li>
+      <li id="button2" data-target="tab2"><a>Second tab</a></li>
+      <li id="button3" data-target="tab3"><a>Third tab</a></li>
+    </ul>
+  </div>
+  <div id="tab1">
+    I AM FIRST TAB
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam
+    aliquid aspernatur consectetur deserunt, distinctio dolores exercitationem
+    expedita fuga fugiat inventore laborum nesciunt perspiciatis praesentium quo
+    unde ut veniam voluptatum?
+  </div>
+  <div id="tab2" class="is-hidden">
+    I AM SECOND TAB
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam
+    aliquid aspernatur consectetur deserunt, distinctio dolores exercitationem
+    expedita fuga fugiat inventore laborum nesciunt perspiciatis praesentium quo
+    unde ut veniam voluptatum?
+  </div>
+  <div id="tab3" class="is-hidden">
+    I AM THIRD TAB
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam
+    aliquid aspernatur consectetur deserunt, distinctio dolores exercitationem
+    expedita fuga fugiat inventore laborum nesciunt perspiciatis praesentium quo
+    unde ut veniam voluptatum?
+  </div>
+</section>
+
+<!--grid-->
+<!--uses flexbox under the hood, not native css grid-->
+<!--we are given 12 columns to play with and we can decide how to split them-->
+<section class="section">
+  <h1 class="is-size-1-desktop is-size-2-tablet is-size-3-mobile">Columnar
+    layout</h1>
+  <div class="container">
+    <div class="columns is-vcentered is-multiline">
+      <div class="column is-12-tablet is-2-desktop">
+        <p>Title goes here</p>
+      </div>
+      <div class="column is-6-tablet is-5-desktop">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          aliquid animi architecto at aut, consequatur, cumque dolorum eveniet,
+          exercitationem id laudantium minus nemo pariatur placeat quas quod
+          totam ullam voluptates.</p>
+      </div>
+      <div class="column is-6-tablet is-5-desktop">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          aliquid animi architecto at aut, consequatur, cumque dolorum eveniet,
+          exercitationem id laudantium minus nemo pariatur placeat quas quod
+          totam ullam voluptates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--styling-->
+<section class="section">
+  <h1 class="is-size-1">I'm an h1</h1>
+  <h2 class="is-size-2 is-uppercase is-italic">I'm an h2</h2>
+  <h2 class="is-size-2 is-lowercase is-italic">I'm an h2</h2>
+  <h3 class="has-text-weight-bold">I'm an h3</h3>
+  <h3 class="has-text-weight-light">I'm an h3</h3>
+  <h4>I'm an h4</h4>
+  <p class="title">I'm a p</p>
+  <p class="subtitle has-text-centered">I'm a p</p>
+  <p class="has-text-primary has-background-light">Hello world!</p>
+  <p class="has-text-danger has-background-black-bis">Hello world!</p>
+  <p class="has-text-danger has-background-black-ter">Hello world!</p>
+  <p class="has-text-danger has-background-grey-darker">Hello world!</p>
+  <p class="has-text-danger has-background-grey-dark">Hello world!</p>
+  <p class="has-text-danger has-background-grey-light">Hello world!</p>
+  <p class="has-text-danger has-background-grey-lighter">Hello world!</p>
+  <p class="py-6 my-2">Hello world!</p>
+  <p class="mt-4 mr-3 mb-2 ml-1">Hello world!</p>
+  <p class="section">Hello world!</p>
+  <p class="is-size-7">I'm a p</p>
+</section>
+
+<!--footer-->
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>Copyright 2020 yay!</p>
+  </div>
+</footer>
+
+</body>
+
+
+<script>
+  //burger menu
+  const burgerIcon = document.querySelector(".navbar-burger")
+  const navbarMenu = document.querySelector(".navbar-menu");
+
+  burgerIcon.addEventListener('click', () => {
+    navbarMenu.classList.toggle("is-active");
+    burgerIcon.classList.toggle("is-active");
+  })
+
+  //tabs
+  const tabLinks = document.querySelectorAll('.tabs li');
+  const tabContent = document.querySelectorAll('div[id*="tab"]');
+
+  tabLinks.forEach(tab => tab.addEventListener('click', handleTabClick));
+
+  function handleTabClick() {
+    tabLinks.forEach(tab => tab.classList.remove('is-active'));
+    this.classList.add('is-active');
+    const tabName = this.dataset.target;
+    tabContent.forEach(content => {
+          content.classList.add('is-hidden');
+          if (content.id === tabName) {
+            content.classList.remove('is-hidden');
+          }
+        }
+    );
+  }
+
+  //modal
+  modalButton = document.querySelector('#modal-button');
+  modalButton.addEventListener('click', () => {
+    document.querySelector(".modal").classList.add('is-active');
+  })
+
+  closeButton = document.querySelector('#close');
+  closeButton.addEventListener('click', () => {
+    document.querySelector('.modal').classList.remove("is-active");
+  })
+
+</script>
+
+</html>

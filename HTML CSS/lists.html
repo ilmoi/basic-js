@@ -1,0 +1,113 @@
+<!--following - https://learn.shayhowe.com/html-css/creating-lists/-->
+
+<!--adding a custom icon in front of your lists-->
+<style>
+    li {
+      background: url("arrow.png") 0 50% no-repeat;
+      list-style-type: none;
+      padding-left: 12px;
+    }
+</style>
+
+
+<!--specify where to start the list from-->
+<ol start="30">
+  <li>Head north on N Halsted St</li>
+  <li>Turn right on W Diversey Pkwy</li>
+  <li>Turn left on N Orchard St</li>
+</ol>
+
+<!--go in reverse order-->
+<ol reversed>
+  <li>Head north on N Halsted St</li>
+  <li>Turn right on W Diversey Pkwy</li>
+  <li>Turn left on N Orchard St</li>
+</ol>
+
+<!--use custom value-->
+<ol>
+  <li>Head north on N Halsted St</li>
+  <li value="9999">Turn right on W Diversey Pkwy</li>
+  <li>Turn left on N Orchard St</li>
+</ol>
+
+<!--description lists-->
+<dl>
+  <dt>study</dt>
+  <dd>The devotion of time and attention to acquiring knowledge on an academic subject, especially by means of books</dd>
+  <dt>design</dt>
+  <dd>A plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made</dd>
+  <dd>Purpose, planning, or intention that exists or is thought to exist behind an action, fact, or material object</dd>
+  <dt>business</dt>
+  <dt>work</dt>
+  <dd>A person's regular occupation, profession, or trade</dd>
+</dl>
+
+<!--nesting lists-->
+<ol>
+  <li>Walk the dog</li>
+  <li>Fold laundry</li>
+  <li>
+    Go to the grocery and buy:
+    <ul>
+      <li>Milk</li>
+      <li>Bread</li>
+      <li>Cheese</li>
+    </ul>
+  </li>
+  <li>Mow the lawn</li>
+  <li>Make dinner</li>
+</ol>
+
+<!--nav list example-->
+<style>
+.navigation ul {
+  font: bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+.navigation li {
+  display: inline-block;
+}
+.navigation a {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  border-right: 1px solid rgba(0, 0, 0, .3);
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+.navigation a:hover {
+  background: #314b60;
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+}
+.navigation li:first-child a {
+  border-radius: 4px 0 0 4px;
+}
+.navigation li:last-child a {
+  border-right: 0;
+  border-radius: 0 4px 4px 0;
+}
+</style>
+<nav class="navigation">
+  <ul>
+    <li><a href="#">Profile</a></li><!--
+    --><li><a href="#">Settings</a></li><!--
+    --><li><a href="#">Notifications</a></li><!--
+    --><li><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+<!--the reason we want to structure navs as lists is for accesibility.
+
+...BUT...
+
+this article disagrees - https://css-tricks.com/navigation-in-lists-to-be-or-not-to-be/
+actually with the <nav> tag from HTML5 it doesn't matter anymore:
+Some of these conversations pre-date the widespread usage of HTML5. HTML5 has the <nav> tag which I believe puts the semantics argument to rest. If you’re marking up navigation, put it in an <nav> tag.
+
+https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists
+another reason seems to be if you want to make multilevel navigation - so list inside a list
+
+-->

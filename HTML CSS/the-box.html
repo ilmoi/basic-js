@@ -1,0 +1,76 @@
+<!--
+
+https://css-tricks.com/the-css-box-model/
+
+height/width = content + padding + border
+if height not set - it might be 0 or browser's reset style
+if width not set - it's more complicated
+
+static/relative positioning
+ - if width in general not set, then padding will push inwards
+ - if width set explicitly (Even to 100%), then padding will push outwards
+
+ absolute/float positioning
+ - width becomes whatever it has to be to accommodate content (can continue expanding until 100% of parent)
+ - LESSON: DONT IMPLICITLY RELY ON SOME ELEMENT TO DECIDE THE WIDTH OF ABSOLUTE/FLOAT ITEMS. SET IT EXPLICITLY.
+
+
+-->
+<style>
+  .container {
+    background-color: lightgray;
+    height: 300px;
+    width: 300px;
+  }
+
+  .relative {
+    background-color: yellow;
+  }
+
+  .static {
+    background-color: deepskyblue;
+  }
+
+  .abs {
+    background-color: orange;
+    position: absolute;
+  }
+
+  .float {
+    background-color: red;
+    padding: 30px;
+    float: left;
+  }
+</style>
+<div class="container">
+  <div class="relative">relative</div>
+  <div class="static">static</div>
+  <div class="abs">abs</div>
+  <div class="float">float</div>
+</div>
+
+<!--there is 1 problem with the box model
+if you specify padding+border - it makes the element bigger than specified width:
+-->
+<style>
+  .simple {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid black;
+  }
+
+  .fancy {
+    width: 500px;
+    margin: 20px auto;
+    -webkit-box-sizing: border-box; /*therefore a new CSS property was introduced: box sizing*/
+       -moz-box-sizing: border-box; /*disable these 3 lines to see the difference*/
+            box-sizing: border-box;
+    padding: 50px;
+    border-width: 10px;
+    border: 1px solid black;
+
+  }
+</style>
+<div class="simple">simple</div>
+<div class="fancy">fancy</div>
+

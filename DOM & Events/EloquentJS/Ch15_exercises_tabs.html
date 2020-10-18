@@ -1,0 +1,55 @@
+<tab-panel>
+  <div style="background-color: blue; height:500px;" data-tabname="one">Tab one</div>
+  <div style="background-color: red; height: 500px;" data-tabname="two">Tab two</div>
+  <div style="background-color: green; height: 500px;" data-tabname="three">Tab three</div>
+</tab-panel>
+<script>
+  function asTabs(node) {
+      // Your code here.
+
+      const children = Array.from(node.childNodes); //need to use array from otherwise it's a live list
+      children.forEach(child => {
+          if (child.nodeType === Node.ELEMENT_NODE ) {
+              const button = document.createElement("button");
+              const buttonAttr = child.getAttribute("data-tabname");
+              button.setAttribute("data-tabname", buttonAttr);
+              button.textContent = buttonAttr;
+              node.insertBefore(button, node.firstChild);
+          }
+      });
+
+      //initially let's hide two and three
+      const tabOne = document.querySelector("div[data-tabname='one']");
+      const tabTwo = document.querySelector("div[data-tabname='two']");
+      const tabThree = document.querySelector("div[data-tabname='three']");
+
+      tabTwo.style.display = "none";
+      tabThree.style.display = "none";
+
+      const buttonOne = document.querySelector('button[data-tabname="one"]');
+      const buttonTwo = document.querySelector('button[data-tabname="two"]');
+      const buttonThree = document.querySelector('button[data-tabname="three"]');
+
+      buttonOne.addEventListener("click", () => {
+          tabOne.style.display = "block";
+          tabTwo.style.display = "none";
+          tabThree.style.display = "none";
+      });
+
+      buttonTwo.addEventListener("click", () => {
+          tabTwo.style.display = "block";
+          tabOne.style.display = "none";
+          tabThree.style.display = "none";
+      });
+
+      buttonThree.addEventListener("click", () => {
+          tabThree.style.display = "block";
+          tabOne.style.display = "none";
+          tabTwo.style.display = "none";
+      });
+
+
+
+  }
+  asTabs(document.querySelector("tab-panel"));
+</script>

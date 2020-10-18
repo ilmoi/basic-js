@@ -1,0 +1,25 @@
+<p>Drag the bar to change its width:</p>
+<div style="background: orange; width: 60px; height: 20px">
+</div>
+<script>
+  let lastX; // Tracks the last observed mouse X position
+  let bar = document.querySelector("div");
+  bar.addEventListener("mousedown", event => {
+    if (event.button == 0) { //==0 means no buttons are currently held
+      lastX = event.clientX; //store last X
+      window.addEventListener("mousemove", moved); //the meat of it
+      event.preventDefault(); // Prevent selection
+    }
+  });
+
+  function moved(event) {
+    if (event.buttons == 0) { //==0 means no buttons are currently held
+      window.removeEventListener("mousemove", moved); //stop listening for mousedown
+    } else {
+      let dist = event.clientX - lastX;
+      let newWidth = Math.max(10, bar.offsetWidth + dist);
+      bar.style.width = newWidth + "px"; //calc the new distance
+      lastX = event.clientX; //update last X
+    }
+  }
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Testing HTML selectors</title>
+    <style>
+        /*simply select both h2 and h3*/
+        h2, h3 {
+            background-color: yellow;
+        }
+        /*All h4 inside of div - CHILDREN AND GRANDCHILDREN*/
+        div h4 {
+            background-color: darkgoldenrod;
+        }
+        /*all h5 inside of div - ONLY DIRECT CHILDREN*/
+        div>h5 {
+            background-color: orange;
+        }
+        /*all p immediately after p*/
+        p+p {
+            background-color: red;
+        }
+        /*all p IMMEDIATELY after h6*/
+        h6+p {
+            background-color: green;
+        }
+        /*all h6 AT SOME POINT after */
+        p~h6 {
+            background-color: violet;
+        }
+        /*for contrast - this only selects first h6 after the p*/
+        p+h6 {
+            background-color: purple;
+        }
+        /*exact match*/
+        span[data-myattr="doge"] {
+            background-color: yellow;
+        }
+        input[type="text"] {
+            border: 3px solid red;
+        }
+        input[type="date"] {
+            border: 3px solid blue;
+        }
+        /*contains the word match*/
+        span[data-myattr*="dog"] {
+            border-bottom: 1px solid black;
+        }
+        /*begins with the word match*/
+        span[data-myattr^="dog"] {
+            border-bottom: 3px solid purple;
+        }
+        /*ends with the word match*/
+        span[data-myattr$="dog"] {
+            border-bottom: 3px solid green;
+        }
+        /*attr is within space separated list*/
+        span[data-myattr~="rocket"] {
+            border-bottom: 3px solid pink;
+        }
+        /*attr is within dash separated list*/
+        span[data-myattr|="rocket"] {
+            border-bottom: 3px solid orangered;
+        }
+        /*match multiple*/
+        span[data-myattr*="dog"][data-myattr*="rocket"] {
+            border-top: 3px solid orangered;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>I'm an h1</h1>
+        <h2>I'm an h2</h2>
+        <h3>I'm an h3</h3>
+        <h4>I'm an h4</h4>
+        <span>
+            <h4>Another h4, but nested further down</h4>
+        </span>
+        <h5>I'm an h5</h5>
+        <span>
+            <h5>Another h5, but nested further down</h5>
+        </span>
+        <h6>I'm an h6</h6>
+    </div>
+    <div>
+        <span>
+            <span>
+                <p>I'm inside div > span > span</p>
+            </span>
+        </span>
+    </div>
+    <div>
+        <h1>p+p</h1>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+    </div>
+    <div>
+        <h1>h6+p</h1>
+        <h6>I'm an h6</h6>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <p>I'm a paragraph</p>
+        <h6>I'm an h6</h6>
+        <h6>I'm an h6</h6>
+        <h6>I'm an h6</h6>
+    </div>
+    <div>
+        <h1>Now lets practice some Attribute Selectors</h1>
+        <span data-myattr="doge">Doge!</span>
+        <span data-myattr="dog">Dog!</span>
+        <span data-myattr="doggger">Doggger!</span>
+        <span data-myattr="me_be_dog_be_me">me be dog be me!</span>
+        <span data-myattr="me_be_dog_be_me_2 rocket">me be dog be me rocket!</span>
+        <span data-myattr="rocket-me_be_dog_be_me_2">me be dog be me -rocket!</span>
+        <span data-myattr="me_be_dog">Me be dog!</span>
+        <!--very commonly used on inputs-->
+        <input type="text">
+        <input type="date">
+    </div>
+</body>
+</html>

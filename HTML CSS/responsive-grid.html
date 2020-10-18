@@ -1,0 +1,47 @@
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  div {
+    background-color: lightgray;
+    border: 1px solid black;
+  }
+
+  .col1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .col2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .col3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  @media(max-width: 600px) {
+    .grid {
+      display: block;
+    }
+  }
+
+</style>
+<div class="grid">
+  <div class="col1">
+    <h2>wow</h2>
+    <p>so much so</p>
+  </div>
+  <div class="col2">
+    <h2>wow</h2>
+    <p>so much so</p>
+  </div>
+  <div class="col3">
+    <h2>wow</h2>
+    <p>so much so</p>
+  </div>
+</div>

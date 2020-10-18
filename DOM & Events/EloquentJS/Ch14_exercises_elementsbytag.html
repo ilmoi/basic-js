@@ -1,0 +1,36 @@
+<h1>Heading with a <span>span</span> element.</h1>
+<p>A paragraph with <span>one</span>, <span>two</span>
+  spans.</p>
+
+<script>
+  //takes a node and a string -> returns all children with tag == tagName
+  function byTagName(node, tagName) {
+      // Your code here.
+      const children = Array.from(node.childNodes);
+      //base case - more involved than usual, we have to check if tag matches or not
+      if (children === undefined || children.length === 0) {
+        return node.tag === tagName ? [node] : [];
+      }
+      //normal case
+      //first append children
+      let valid_children = [];
+      children.forEach(child => {
+          const valid_subchildren = byTagName(child, tagName)
+          valid_children = valid_children.concat(valid_subchildren);
+      });
+      //then check the node itself and add to children and return
+      if (node.tagName.toLowerCase() === tagName) {
+          return [node].concat(valid_children);
+      } else {
+          return valid_children;
+      }
+  }
+
+  console.log(byTagName(document.body, "h1").length);
+  // → 1
+  console.log(byTagName(document.body, "span").length);
+  // → 3
+  let para = document.querySelector("p");
+  console.log(byTagName(para, "span").length);
+  // → 2
+</script>

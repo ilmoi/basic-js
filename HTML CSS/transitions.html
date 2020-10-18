@@ -1,0 +1,113 @@
+<!--
+from - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+transitions vs animations: transitions run once, animations run in a loop
+
+
+-->
+
+<style>
+  .div {
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+    /*transition: <property> <duration> <timing-function> <delay>;
+    prop - specifies CSS props to which the transition should be applied
+    duration - can specify single duration that applies to all props, or multiple
+    timing-function - think bezie curve. basically what happens in between
+    delay - how long before animation kicks in
+    */
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+
+  .div:hover {
+    width: 200px;
+    color: red;
+  }
+
+  h1 {
+    display: block;
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+  }
+
+  h1:hover {
+    background-color: #0764f8;
+    width: 200px;
+    height: 200px;
+    transform: rotate(180deg);
+  }
+
+</style>
+<div class="div">
+</div>
+<h1>Yay</h1>
+
+<!--on menus-->
+<style>
+  a {
+    color: #fff;
+    background-color: #333;
+    transition: all 1s ease-out;
+  }
+
+  a:hover,
+  a:focus {
+    color: #333;
+    background-color: #fff;
+  }
+</style>
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact Us</a>
+  <a href="#">Links</a>
+</nav>
+
+<!--css vs js-->
+<p>Click anywhere to move the ball</p>
+<div id="bar"></div>
+<div id="foo"></div>
+
+<style>
+  p {
+    padding-left: 60px;
+  }
+  #foo {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s;
+    background-color: #0764f8;
+  }
+  #bar {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: #c00;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
+<script>
+  //pure js - not smooth
+  var x = document.getElementById('foo');
+  document.addEventListener('click', function (ev) {
+    x.style.transform = 'translateY(' + (ev.clientY - 25) + 'px)';
+    x.style.transform += 'translateX(' + (ev.clientX - 25) + 'px)';
+  }, false);
+  //js+css - smooth
+  var f = document.getElementById('bar');
+  document.addEventListener('click', function (ev) {
+    f.style.transform = 'translateY(' + (ev.clientY - 25) + 'px)';
+    f.style.transform += 'translateX(' + (ev.clientX - 25) + 'px)';
+  }, false);
+</script>

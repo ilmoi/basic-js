@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+    <label for="blur">Blur:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">Base Color</label>
+    <input id="base" type="color" name="base" value="#ffc600">
+  </div>
+
+  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+
+  <style>
+
+    :root { /*root is the highest level you can set css vars at */
+      --base: blue; /*this is how css variables look like. in SASS you use $ but here youy use --. Here we're simply defininig the defaults */
+      --spacing: 20px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input'); //all inputs that are children of control class
+
+    function handleChange() {
+      //this.dataset is an object that will contain all the "data-" attributes
+      const suffix = this.dataset.sizing || ''; //"or nothing" is needed at the end to avoid appending "undefined"
+      //how updating css variables works:
+      //we basically set the property of the right name. here we on purposes added an attribute to the elements we're working with where we can get the name from
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    //we're calling handle update on both mouseclick and also mousemove
+    inputs.forEach(input => input.addEventListener('change', handleChange));
+    inputs.forEach(input => input.addEventListener('mousemove', handleChange));
+
+  </script>
+
+</body>
+</html>

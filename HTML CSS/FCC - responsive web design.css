@@ -1,0 +1,326 @@
+/* three ways to apply css styling:
+1. apply inline styles directly to html elements
+2. place css rules within style tags in html documents
+3. write css rules in an external sheet then ref back
+ */
+
+/* SELECTORS */
+/* class */
+.red-text {
+    color: red;
+}
+/* id - you should always have a max 1 per element */
+#cat-photo-element {
+    background-color: green;
+}
+/* attributes */
+[type='radio'] {
+    margin: 20px 0px 20px 0px;
+}
+/* pseudoclasses */
+a:hover {
+    color: red;
+}
+
+
+/* FONTS
+import a custom font in HTML */
+/* <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"> */
+
+/* tell the browser to degrade to another font if the imported one is unavailable for some reason
+3 fonts are always available: serif, sans-serif, monospace */
+p {
+    font-family: Helvetica, sans-serif;
+}
+
+
+/* RECTANGLES
+every rectangle has 3 important props: 1)padding, 2)border, 3)margin */
+.blue-box {
+    background-color: blue;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+/* specify padding in a clockwise rotation */
+.yellow-box {
+    background-color: yellow;
+    /* top right bottom left */
+    padding: 20px 40px 20px 40px;
+}
+
+
+/* UNITS
+absolute: px, in, mm
+relative: em (based on size of font), rem, %
+
+
+HIERARCHY
+from most important to least:
+!important > local (style="") > id > class > h2
+if multiple stylings applied at the same level, eg class1, class2 - then the LAST class prevails
+
+
+CSS VARIABLES */
+.penguin {
+    --penguin-skin: gray;
+
+.penguin-top {
+    background: var(--penguin-skin, gray);
+}
+
+
+/* INHERITANCE
+at the very top you have root - matches <html> tag */
+:root {
+    color: red;
+}
+
+
+/* DYNAMIC MEDIA
+when screen size changes, we can change certain attributes */
+@media (max-width: 350px) {
+    :root {
+        --penguin-size: 200px;
+        --penguin-skin: black;
+    }
+}
+
+
+/* POSITIONING
+relative (to viewport)
+(!) this keeps the item in the relative flow */
+section {
+    position: relative;
+    top: 10px;
+}
+/* absolute = locks in place relative to parent container
+(!) this removes the item from relative flow of the doc
+(!) one nuance - it will be locked relative to the FIRST ANCESTOR WITH DEFINED POSITIONING. So if none are - it will go all the way to the top */
+section {
+    position: absolute;
+    top: 10px;
+}
+/* fixed = relative to browser window
+(!) an element with fixed positoin won't move when the window scrolls */
+section {
+    position: fixed;
+    /* by setting both of the below to 0 we make a menu bar */
+    top: 0px;
+    left: 0px;
+}
+/* float = remove element from the flow and push to left or right of their containing parent */
+/* commonly used with "width" property to specify how much horizontal space the floated element requires */
+#left {
+  float: left;
+  width: 50%;
+}
+#right {
+  float: right;
+  width: 40%;
+}
+/* we can use z-index to specify which item comes out on top when items overlap */
+/* higher = closer to top */
+.first {
+  z-index: 2;
+}
+/* margin = put elements in the middle of a div into the center */
+div {
+  margin: auto;
+}
+/* ::before and ::after used to place elems next to chosen one */
+/* (!) require the content property, but we can set it to empty string */
+.heart::before {
+  content: "";
+}
+
+/* TRANSFORM */
+/* can do on hover - or without */
+div:hover {
+  transform: scale(1.1);
+  transform: skewX(-32deg);
+}
+
+
+/* ANIMATION */
+/* below makes the button change color on hover */
+button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards; /*this is needed to ensure button stays the different color after it's been changed*/
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    /* cubic-bezier relies on 4 points: first always 0,0; last always 1,1; the 2 in between we can modify */
+    animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+@keyframes background-color {
+    100% {
+      background-color: #4791d0;
+    }
+}
+
+
+/* hide content for screenreaders */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+/* (!) NOTE: these approaches won't work:
+display: none; or visibility: hidden; hides content for everyone, including screen reader users
+Zero values for pixel sizes, such as width: 0px; height: 0px; removes that element from the flow of your document, meaning screen readers will ignore it */
+
+
+/* ACCESSIBILITY
+Folks using assistive technologies rely on the page being structured correctly:
+- must have at least 1 H1 heading
+- use H1-H6 consistently, so that it makes sense, and not because of how they look (use CSS to style them)
+ eg you should not have H2 followed by H4, but rather H3
+- should only have one <main> element that includes content SPECIFIC to that page (ie not navbar)
+   also has an assistive feature of "jump to navbar"
+- <div> = group content
+- <section> = group RELATED content
+- <article> = a piece of SELF CONTAINED content
+- <header> (NOT <head>) = informational info + navbar - used INSIDE the <body> tag
+- <nav> goes inside header for navigation links
+- <footer> - copyright info + repeated nav links
+- use <audio>, <figcaption>, <img> properly, with alttext
+- use <label> around form items and be sure that for="x" on label tag matches id="x" on actual form item
+- use <fieldset> + <legend> to group radio buttons to provide context
+- use <time> for dates in text
+- use css to hide content that is meant only for screenreaders
+- think about colorblindness. there are tools online that help there
+- screenreaders can hop over the <a> links, so don't put text like "click here" inside of them - put useful descriptions
+ */
+
+
+/* RESPONSIVE DESIGN */
+/* media queries allow us to change how the content behaves based on screen size */
+@media (max-width: 100px) { /* CSS Rules */ }
+@media (min-height: 350px) { /* CSS Rules */ }
+
+/* to make an image responsive  */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* to make sure images display correctly on retina displays set their height and width to 50% */
+img {height: 100px; width: 100px;} /*in this example image is 200px*/
+
+
+/* you can size text to be some % of the "viewport" == screen */
+/* vw = vieportwidth = relative to screen width 0-100*/
+/* vh = vieportheight = relative to screen height 0-100*/
+/* vmin = vieport's smaller dim = relative to screen's smaller dim 0-100*/
+/* vmax = vieport's lareger dim = relative to screen's larger dim 0-100*/
+
+
+/* CSS FLEXBOX */
+/* we activate the flexbox mode by setting */
+/* NOTE - this is the NEW FLEXBOX LAYOUT - https://css-tricks.com/old-flexbox-and-new-flexbox/ */
+display: flex;
+
+/* PROPS FOR CONTAINERS */
+/* we can then decide to org children of a given flex item into rows or cols */
+/* row align children horizontally */
+flex-direction: row;
+flex-direction: row-reverse;
+/* columns align children vertically */
+flex-direction: column;
+flex-direction: column-reverse;
+
+/* MAIN axis = the direction in which our flex items are arranged */
+/* so MAIN = horizontal for row, vertical for column */
+/* read about options to space items along the main axis here: https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-justify-content-property */
+justify-content: center;
+justify-content: space-between;
+justify-content: space-around;
+
+/* CROSS axis = the other one */
+/* here we use these funcs to align: */
+/* see options here https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-align-items-property */
+align-items: center;
+/* (!)NOTE how it's justify CONTENT, but align ITEMS */
+
+/* by default flexbox will try to fit all items on the same row */
+/* to shift items onto the next row use: */
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+
+/* PROPS FOR ITEMS INSIDE CONTAINERS */
+/* shrink = reduce the item in size when parent container too small / contracts */
+/* the higher the number = the more it will shrink */
+flex-shrink: some_number;
+
+/* flex-grow == opposite of flex-shring */
+flex-grow: some_number;
+
+/* basis = initial size of item before CSS makes any adjustments with shrink / grow */
+flex-basis: 10px;
+
+/* "flex" property = sets all 3 together in this order: grow > shrink > basis */
+/* eg the setup below, the first item will be bigger on big screens, but smaller on small screens. It's the one that grows/shrinks more */
+flex: 5 5 10px;
+flex: 1 1 10px;
+
+/* order */
+order: 1;
+
+/* adjust each item's alignment individually instead of doing all of them together */
+align-self: center;
+
+
+/* CSS GRID */
+/* turn any css elem into a grid container (need to define at least one of rows or cols) */
+display: grid;
+grid-template-columns: 50px 50px;
+grid-template-rows: auto 50px 10% 2fr 1fr; /* can play with sizes */
+grid-template-rows: repeat(100, 50px); /* insert 100 reps at once */
+grid-template-columns: repeat(2, 1fr 50px) 20px;
+grid-template-columns: 100px minmax(50px, 200px); /* In the code above, grid-template-columns is set to create two columns; the first is 100px wide, and the second has the minimum width of 50px and the maximum width of 200px. */
+/* repeat comes with autofill = insert as many cols that fit the size as possible */
+repeat(auto-fill, minmax(60px, 1fr));
+/* kinda like auto fill except also stretches the items to take up all the space in a row */
+repeat(auto-fit, minmax(60px, 1fr));
+
+/* in css grid:
+ - parent = "containter"
+ - children = "iterms" */
+
+/* PARENT */
+/* add gaps */
+grid-row-gap: 10px;
+grid-column-gap: 20px;
+grid-gap: 10px 20px;
+grid-gap: 10px;
+
+/* now the CHILDREN
+decide how many columns it should take */
+grid-column: 2 / 4;
+grid-row: 2 / 4;
+
+/* align content inside of cells */
+/* horizontally */
+justify-self: center;
+/* vertically */
+align-self: center;
+/* all at once */
+justify-items: center;
+
+/* assign areas to your grid */
+/* use . to designate an empty cell */
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+/* we can then place items into various parts of the grid */
+.item1 {
+  grid-area: header;
+}
+/* or we can define an area on the fly for a given item */
+/* grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at; */
+item1 { grid-area: 1/1/2/4; }

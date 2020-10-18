@@ -1,0 +1,146 @@
+<!--
+from - https://alistapart.com/article/css-floats-101/
+
+float = box that is shifted left or right, to the very edge of parent
+values: left / right / inherit / none
+content flow along the OPPOSITE side (unless "clear" property)
+
+floats will sit next to each other IF there is enough width in the parent elem
+
+clear - ensures the non-floated content displays ok
+(!) we set it to the NON FLOATED content, rather than to floated content
+values: left / right / inherit / none
+
+-->
+
+<style>
+  div {
+    padding: 60px;
+  }
+
+  .container {
+    background-color: lightgray;
+    width: 300px;
+    height: 300px;
+  }
+
+  .left {
+    background-color: lightcoral;
+    float: left;
+  }
+
+  .right {
+    background-color: lightblue;
+    float: right;
+  }
+
+  .normal {
+    background-color: #0764f8;
+    border: 2px solid red;
+    clear: both;
+  }
+</style>
+<div class="container">
+  <div class="left">left</div>
+  <div class="right">right</div>
+  <div class="normal">normal</div>
+  <div class="normal">normal</div>
+</div>
+
+<!--
+where is float useful?
+for 2 column layouts
+-->
+<style>
+  #container {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  #content {
+    float: left;
+    width: 360px; /*360+120 padding = 50% of 960px*/
+    background: lightgreen;
+  }
+
+  #navigation {
+    float: right;
+    width: 360px; /*360+120 padding = 50% of 960px*/
+    background: #eee;
+  }
+
+  #footer {
+    clear: both;
+    background: #aaa;
+    padding: 10px;
+  }
+</style>
+<div id="container">
+  <div id="content"></div>
+  <div id="navigation"></div>
+  <div id="footer"></div>
+</div>
+
+<!--note that position of the floated box in html matters!
+see the difference between the 2 examples below-->
+<style>
+  #container2 {
+    background-color: lightgreen;
+    padding: 0px;
+  }
+
+  img {
+    width: 100px;
+    float: right;
+  }
+</style>
+<div id="container2">
+  <img src="https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg"/>
+  <p>This is some text contained within a small-ish box. I'm using it as an
+    example of how placing your floated elements in different orders in your
+    HTML can affect your layouts. For example, take a look at this great photo
+    placeholder that should be sitting on the right.</p>
+</div>
+<br/>
+<div id="container2">
+  <p>This is some text contained within a small-ish box. I'm using it as an
+    example of how placing your floated elements in different orders in your
+    HTML can affect your layouts. For example, take a look at this great photo
+    placeholder that should be sitting on the right.</p>
+  <img src="https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg"/>
+</div>
+
+
+<!--preventing collapse-->
+<style>
+  .collapse-preventer {
+    padding: 0px;
+    clear: both;
+  }
+</style>
+<br/>
+<h1>preventing collapse</h1>
+<h2>first way</h2>
+<div id="container2">
+  <img src="https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg"/>
+  <p>This is some text contained within a small-ish box. I'm using it as an
+    example of how placing your floated elements in different orders in your
+    HTML can affect your layouts. For example, take a look at this great photo
+    placeholder that should be sitting on the right.</p>
+  <div class="collapse-preventer"></div>
+</div>
+<h2>second way</h2>
+<style>
+  #container3 {
+    padding: 0;
+    overflow: auto;
+    background-color: #0764f8;
+  }
+</style>
+<div id="container3">
+  <img src="https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg"/>
+  <p>This is some text contained within a small-ish box. I'm using it as an
+    example of how placing your floated elements in different orders in your
+    HTML can affect your layouts. For example, take a look at this great photo
+    placeholder that should be sitting on the right.</p>
+</div>

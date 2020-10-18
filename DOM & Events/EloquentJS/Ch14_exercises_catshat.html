@@ -1,0 +1,28 @@
+<style>body { min-height: 200px }</style>
+<img src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg" id="cat" style="position: absolute">
+<img src="https://purepng.com/public/uploads/medium/purepng.com-black-top-hathatsstandard-sizeblackcliparttopred-round-1421526359368ejxm2.png" id="hat" style="position: absolute; max-width: 100px;">
+
+<script>
+  let cat = document.querySelector("#cat");
+  let hat = document.querySelector("#hat");
+
+  let angle = 0;
+  let hatAngle = 180;
+  let lastTime = null;
+  function animate(time) {
+    if (lastTime != null) {
+        angle += (time - lastTime) * 0.001
+        hatAngle += (time - lastTime) * 0.001
+    };
+    lastTime = time;
+    cat.style.top = (Math.sin(angle) * 40 + 40) + "px";
+    hat.style.top = (Math.sin(hatAngle) * 40 + 40) + "px";
+    cat.style.left = (Math.cos(angle) * 200 + 230) + "px";
+    hat.style.left = (Math.cos(hatAngle) * 200 + 230) + "px";
+
+    // Your extensions here.
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+</script>

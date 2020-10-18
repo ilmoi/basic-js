@@ -1,0 +1,48 @@
+.doge {
+  background-color: red;
+}
+
+body {
+  font: 100% monospace;
+  font-size: 20px;
+  color: blue;
+}
+
+div {
+  background-color: yellow;
+}
+div h1 {
+  background-color: orange;
+}
+div h5 {
+  background-color: red;
+}
+@media (max-width: 600px) {
+  div h5 {
+    background-color: green;
+  }
+}
+
+.long-para {
+  padding: 50px;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}
+
+h3, h2 {
+  border: 1px solid black;
+}
+
+h5 {
+  font-size: 60px;
+}
+
+a {
+  color: #000099;
+}
+
+/*# sourceMappingURL=HOW_TO_SASS.css.map */

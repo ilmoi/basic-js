@@ -1,0 +1,38 @@
+{
+  "name": "Webpack_Colt_Steele",
+  "version": "1.0.0",
+  "description": "",
+  // set main to none when using webpack
+  "main": "",
+  // don't forget to add private, or it will upload to npm
+  "private": true,
+  "scripts": {
+    // starting from webpack-cli@4 we do this instead of "webpack-dev-server xxx"
+    "start": "webpack serve --config=webpack.dev.js --open 'Google Chrome' ",
+    "build": "webpack --config=webpack.prod.js",
+    "watch": "webpack --config=webpack.dev.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.5.3",
+    "clean-webpack-plugin": "^3.0.0", // used to remove previously hashed files, all except current
+    "css-loader": "^5.0.0", // used together with Style loader. CSS -> JS
+    "file-loader": "^6.1.1", // used together with HTML loader. Replaces static path to image with a "require" path
+    "html-loader": "^1.3.2", // used together with File loader. Moves the img to dist folder, hashing the name
+    "html-webpack-plugin": "^4.5.0", // used to dynamicaly prepare index.html
+    "jquery": "^3.5.1", // dependecy for bootstrap
+    "mini-css-extract-plugin": "^1.1.2", // extracts CSS into a separate file rather than letting it go through JS. Improves page performance
+    "node-sass": "^4.14.1", // dependecy for sass-loader
+    "optimize-css-assets-webpack-plugin": "^5.0.4", // minify css
+    "popper.js": "^1.16.1", // dependency for bootstrap
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.4", // if you're using SASS / SCSS rather than raw CSS
+    "style-loader": "^2.0.0", // used together with CSS loader. JS -> DOM
+    "webpack": "^4.44.2", // core
+    "webpack-cli": "^4.1.0", // core
+    "webpack-dev-server": "^3.11.0", // to be able to run a dev server, which automatically updates the page as we change it
+    "webpack-merge": "^5.2.0" // to be able to have multiple config files, and then merge them
+  }
+}

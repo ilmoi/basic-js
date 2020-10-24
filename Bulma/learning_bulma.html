@@ -1,4 +1,23 @@
-<!--from https://www.youtube.com/watch?v=SCSAExGFK1E&list=PL4cUxeGkcC9iXItWKbaQxcyDT1u6E7a8a&index=1-->
+<!--
+
+from https://www.youtube.com/watch?v=SCSAExGFK1E&list=PL4cUxeGkcC9iXItWKbaQxcyDT1u6E7a8a&index=1
+
+how to add custom stuff to bulma:
+1. on their website download the latest bulma files + copy them in -> https://bulma.io/documentation/customize/with-sass-cli/
+
+2. create sass/mystyles.css > put the below into there [ensure path correct]
+@charset "utf-8";
+@import "../bulma-0.9.1/bulma.sass";
+
+3. Setup SCSS > CSS watch (or using WS)
+sass --watch --sourcemap=none sass/mystyles.scss:css/mystyles.css
+
+4. Import mystyles into your html doc: [also disable CDN imports]
+<link rel="stylesheet" href="css/mystyles.css">
+
+5. Write your custom CSS ABOVE the "import bulma" line
+
+-->
 
 <html lang="en">
 

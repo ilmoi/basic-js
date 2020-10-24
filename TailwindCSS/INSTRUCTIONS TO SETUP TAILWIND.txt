@@ -1,0 +1,40 @@
+how to setup tailwind / postcss
+
+1. npm init -y
+- this will create package.json
+
+2. npm install tailwindcss postcss-cli
+ - this will add it to package.json as dependecy
+
+3. in terminal: npx tailwindcss init
+ - creates a tailwind.config.js file
+ - add --full to see all props you may want to mofigy
+
+4. create postcss.config.js file in the same folder > add the below:
+module.exports = {
+  plugins: [
+    require('tailwindcss'),
+  ]
+}
+
+5. create src folder >styles.css > add the below:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+6. add 2 scripts to package.json:
+"build-css": "postcss src/styles.css -o styles.css”,
+"watch-css": "postcss src/styles.css -o styles.css --watch"
+
+6. in terminal: npm run build-css (the script we prepared in package.json)
+
+7. add  <link rel="stylesheet" href="styles.css"> at the top of html file
+
+8. to customize you will be editing one of 2 files:
+ - styles.css (eg save custom classes) OR
+ - tailwind.config.js (eg add custom colors)
+
+
+sources:
+1. setting up tailwind - https://www.youtube.com/watch?v=bxmDnn7lrnk
+2. setting up postcss - https://www.youtube.com/watch?v=21HuwjmuS7A

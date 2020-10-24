@@ -1,5 +1,6 @@
 <!--from - https://learn.shayhowe.com/html-css/building-forms/-->
 
+<!-- different types of inputs -->
 <input type="text" name="username">
 <input type="date" name="birthday">
 <input type="time" name="game-time">
@@ -74,3 +75,47 @@
     <input type="text" name="password">
   </label>
 </fieldset>
+
+<!-- ======================================================================= -->
+<!-- form validation -->
+
+<!-- required -->
+<input id="choose" name="i_like" required>
+<!-- note that we can use css to make it more meaninful -->
+<style>
+    input:invalid {
+      border: 2px dashed red;
+    }
+    input:invalid:required {
+      background-image: linear-gradient(to right, pink, lightgreen);
+    }
+    input:valid {
+      border: 2px solid black;
+    }
+</style>
+
+<!-- regex -->
+<input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+
+<!-- min / max length -->
+<input type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+
+<!-- we can write custom JS for custom form validation logic like this -->
+<script>
+  const email = document.getElementById("mail");
+
+  // add event listener to input
+  email.addEventListener("input", function (event) {
+    // we can use validity + any of the follwoing: patternMismatch, tooLong, tooShort, rangeOverflow, rangeUnderflow, typeMismatch, valid, valueMissing
+    // any of the above will return "true" if validation fails (except for "valid", which returns true if element meets all validation constraints)
+    // alternatively we can use checkValidity(), which returns true if there are no validation problems
+    if (email.validity.typeMismatch) {
+      // we can then set a custom msg with setCustomValidity()
+      email.setCustomValidity("I am expecting an e-mail address!");
+    } else {
+      email.setCustomValidity("");
+    }
+  });
+</script>
+
+<!-- see more options for JS validation of forms here -> https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
